@@ -43,7 +43,10 @@ jobs:
         repository: amir9979/javadiff
         path: ./repository_mining/javadiff
         fetch-depth: 0
-    
+
+    - name: ls
+      run: ls -R
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
