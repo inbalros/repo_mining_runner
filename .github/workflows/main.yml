@@ -41,7 +41,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: amir9979/javadiff
-        path: ./repository_mining/javadiff
+        path: ./javadiff
         fetch-depth: 0
 
     - name: ls
@@ -61,7 +61,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: execute
-      run: python javadiff/setup.py install
+      run: python ./javadiff/setup.py install
 
     - name: execute
       run: python Main.py -c ${{github.event.issue.title}}
