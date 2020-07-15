@@ -13,7 +13,6 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    continue-on-error: true
     runs-on: windows-latest
             
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -28,14 +27,12 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip uninstall -y enum34
         pip install pytest 
         pip install gitpython
         pip install jira
         pip install termcolor 
         pip install openpyxl  
         pip install javalang
-        pip install enum 
         pip install pathlib
         pip install junitparser
         pip install -r requirements.txt
