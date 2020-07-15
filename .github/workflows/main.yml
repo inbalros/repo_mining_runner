@@ -44,9 +44,6 @@ jobs:
         path: ./javadiff
         fetch-depth: 0
 
-    - name: ls
-      run: ls -R
-
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -64,22 +61,33 @@ jobs:
       run: python ./javadiff/setup.py install
 
     - name: execute
-      run: python Main.py -c ${{github.event.issue.title}}
+      run: python Main.py -c ${{github.event.issue.title}} -n 3
+
+    - name: ls
+      run: ls -R
+
+    - name: Upload metrics
+      uses: actions/upload-artifact@v2
+      with:
+        # Artifact name
+        name: metrics
+        # A file, directory or wildcard pattern that describes what to upload
+        path: /repository_data/metrics
 
     - name: Upload repository_data
       uses: actions/upload-artifact@v2
       with:
         # Artifact name
-        name: repository_data.zip
+        name: repository_data
         # A file, directory or wildcard pattern that describes what to upload
-        path: ./repository_data
+        path: /repository_data
         
     - name: Upload results to release
       uses: svenstaro/upload-release-action@v1-release
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: repository_data.zip
-        asset_name: ${{github.event.issue.title}}.csv
+        file: repository_data
+        asset_name: ${{github.event.issue.title}}
         tag: ${{github.event.issue.title}}_${{github.event.issue.number}}
 
     - name: Close Issue
