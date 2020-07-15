@@ -75,7 +75,7 @@ jobs:
         path: repository_data
 
     - name: create zip
-      run: python -c "import shutil; shutil.make_archive('data.zip', 'zip')"
+      run: python -c "import shutil; shutil.make_archive('data', 'zip')"
       working-directory: repository_data
 
     - name: ls
