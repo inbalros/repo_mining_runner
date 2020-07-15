@@ -60,6 +60,9 @@ jobs:
     - name: execute
       run: python ./javadiff/setup.py install
 
+    - name: echo
+      run: echo 123 > repository_data\r.txt
+
     - name: Upload repository_data
       uses: actions/upload-artifact@v2
       with:
