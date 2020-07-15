@@ -63,8 +63,8 @@ jobs:
     - name: echo
       run: echo 123 > repository_data\r.txt
 
-#     - name: execute
-#       run: python Main.py -c ${{github.event.issue.title}} -n 3
+    - name: execute
+      run: python Main.py -c ${{github.event.issue.title}} -n 3
 
     - name: Upload repository_data
       uses: actions/upload-artifact@v2
@@ -86,7 +86,7 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: repository_data/data.zip
-        asset_name: ${{github.event.issue.title}}
+        asset_name: ${{github.event.issue.title}}.zip
         tag: ${{github.event.issue.title}}_${{github.event.issue.number}}
 
     - name: Close Issue
