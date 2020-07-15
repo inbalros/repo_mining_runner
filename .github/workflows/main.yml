@@ -78,6 +78,9 @@ jobs:
       run: python -c "import shutil; shutil.make_archive('data.zip', 'zip')"
       working-directory: repository_data
 
+    - name: ls
+      run: ls -R
+
     - name: Upload results to release
       uses: svenstaro/upload-release-action@v1-release
       with:
