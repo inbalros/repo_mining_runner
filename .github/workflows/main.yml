@@ -60,35 +60,16 @@ jobs:
     - name: execute
       run: python ./javadiff/setup.py install
 
-    - name: Upload paper1
+    - name: Upload repository_data
       uses: actions/upload-artifact@v2
       with:
         # Artifact name
-        name: paper1
+        name: repository_data1
         # A file, directory or wildcard pattern that describes what to upload
-        path: paper
-
-    - name: Upload paper2
-      uses: actions/upload-artifact@v2
-      with:
-        # Artifact name
-        name: paper2
-        # A file, directory or wildcard pattern that describes what to upload
-        path: ./paper
-
-    - name: Upload paper3
-      uses: actions/upload-artifact@v2
-      with:
-        # Artifact name
-        name: paper3
-        # A file, directory or wildcard pattern that describes what to upload
-        path: ./paper/
+        path: repository_data
 
     - name: execute
       run: python Main.py -c ${{github.event.issue.title}} -n 3
-
-    - name: ls
-      run: ls -R
 
     - name: Upload metrics
       uses: actions/upload-artifact@v2
@@ -96,7 +77,7 @@ jobs:
         # Artifact name
         name: metrics
         # A file, directory or wildcard pattern that describes what to upload
-        path: /repository_data/metrics
+        path: repository_data/metrics
 
     - name: Upload repository_data
       uses: actions/upload-artifact@v2
@@ -104,7 +85,7 @@ jobs:
         # Artifact name
         name: repository_data
         # A file, directory or wildcard pattern that describes what to upload
-        path: /repository_data
+        path: repository_data
         
     - name: Upload results to release
       uses: svenstaro/upload-release-action@v1-release
