@@ -63,14 +63,6 @@ jobs:
     - name: echo
       run: echo 123 > repository_data\r.txt
 
-    - name: Upload repository_data
-      uses: actions/upload-artifact@v2
-      with:
-        # Artifact name
-        name: repository_data1
-        # A file, directory or wildcard pattern that describes what to upload
-        path: repository_data
-
     - name: execute
       run: python Main.py -c ${{github.event.issue.title}} -n 3
 
