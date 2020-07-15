@@ -58,6 +58,9 @@ jobs:
         pip install -r requirements.txt
 
     - name: execute
+      run: python javadiff/setup.py install
+
+    - name: execute
       run: python Main.py -c ${{github.event.issue.title}}
 
     - name: Upload repository_data
