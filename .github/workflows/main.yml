@@ -64,7 +64,7 @@ jobs:
       run: echo 123 > repository_data\r.txt
 
     - name: execute
-      run: python Main.py -c ${{github.event.issue.title}} -n 3 -s 0
+      run: python Main.py -c ${{github.event.issue.title}} -n 5 -s 0 -f
 
     - name: Upload repository_data
       if: ${{ always() }}
