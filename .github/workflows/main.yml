@@ -67,7 +67,7 @@ jobs:
       run: python Main.py -c ${{github.event.issue.title}} -n 3 -s 0
 
     - name: Upload repository_data
-      continue-on-error: true
+      if: ${{ always() }}
       uses: actions/upload-artifact@v2
       with:
         # Artifact name
