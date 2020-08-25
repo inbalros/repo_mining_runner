@@ -35,7 +35,7 @@ jobs:
     - name: Checkout repository_mining
       uses: actions/checkout@v2
       with:
-        repository: amir9979/repository_mining
+        repository: inbalros/repository_mining
         path: .
         fetch-depth: 0
     
